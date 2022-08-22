@@ -22,3 +22,10 @@ module "resource_group" {
   tags = local.tags
 
 }
+
+module "app_service_plan" {
+  source = "git@github.com:nexient-llc/tf-azurerm-module-service_plan.git?ref=0.1.0"
+
+  resource_group    = local.resource_group
+  service_plan_name = local.service_plan_name
+}

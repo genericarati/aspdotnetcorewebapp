@@ -69,22 +69,10 @@ variable "resource_types" {
     "resource_group" = {
       type           = "rg"
       maximum_length = 63
-    }
-    "cdn_profile" = {
-      type           = "cdn"
-      maximum_length = 60
-    }
-    "cdn_endpoint" = {
-      type           = "ep"
+    },
+    "app_service_plan" = {
+      type           = "asp"
       maximum_length = 63
-    }
-    "storage_account" = {
-      type           = "sa"
-      maximum_length = 24
-    }
-    "key_vault" = {
-      type           = "kv"
-      maximum_length = 24
     }
   }
 }
@@ -103,10 +91,32 @@ variable "resource_group" {
   }
 }
 
+#################################################
+#Tag variables
+##################################################
 variable "custom_tags" {
   description = "custom tags"
   type        = map(string)
   default = {
     "Team" = "My Team"
+  }
+}
+
+#################################################
+#Variables associated with app service plan module
+##################################################
+variable "service_plan" {
+  description = "Object containing the details for a service plan"
+  type = object({
+    os_type      = string
+    sku_name     = string
+    custom_tags  = map(string)
+    worker_count = number
+  })
+  default = {
+    os_type      = "Linux"
+    sku_name     = "F1"
+    worker_count = 1
+    custom_tags  = {}
   }
 }

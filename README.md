@@ -1,16 +1,11 @@
-# tf-azurerm-module_ref-frontend
+# tf-azurerm-module_ref-webapp
 
 ## Overview
 
-This is a reference architecture module that will provision a front-end infrastructure on Azure. The frontend will be hosted from a storage account container. The front end is globally distributed and cached using Azure CDN. Users can optionally set up custom domain and TLS certificates.
+This is a reference architecture module that will provision a web-app infrastructure on Azure. 
 
 List of dependent infrastructures created by this module
 - Resource Group
-- Storage Account and container
-- Key Vault
-- Import Certificates to Key Vault
-- CDN, delivery rules, custom domain, HTTPs
-- DNS (create CName record in provided DNS Zone)
 
 ## Pre-Commit hooks
 [.pre-commit-config.yaml](.pre-commit-config.yaml) file defines certain `pre-commit` hooks that are relevant to terraform, golang and common linting tasks. There are no custom hooks added.

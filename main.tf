@@ -29,3 +29,12 @@ module "app_service_plan" {
   resource_group    = local.resource_group
   service_plan_name = local.service_plan_name
 }
+
+module "windows_web_app" {
+  source = "git@github.com:nexient-llc/tf-azurerm-module-windows_web_app.git?ref=0.1.0"
+
+  resource_group       = local.resource_group
+  windows_web_app_name = local.windows_web_app_name
+  service_plan_id      = local.service_plan_id
+}
+

@@ -73,6 +73,10 @@ variable "resource_types" {
     "app_service_plan" = {
       type           = "asp"
       maximum_length = 63
+    },
+    "windows_web_app" = {
+      type           = "webapp"
+      maximum_length = 63
     }
   }
 }
